@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Work_Sans, Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
+import { Work_Sans } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/lib/cart-context"
 import { OrderProvider } from "@/lib/order-context"
@@ -12,10 +13,20 @@ const workSans = Work_Sans({
   display: "swap",
 })
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
+const geistMono = localFont({
+  src: [
+    {
+      path: "../public/fonts/geist-mono/GeistMono-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/geist-mono/GeistMono-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-geist-mono",
-  display: "swap",
 })
 
 export const metadata: Metadata = {
